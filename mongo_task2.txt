@@ -1,0 +1,20 @@
+Questions:
+
+List all media of a particular film
+List all media and reviews of a particular film
+List all cast along with roles and artist of a particular film
+List all the reviews given by particular user
+List all the skills of a particular Artist
+List all the roles performed by a particular artist
+
+
+-------------------------------------------------------------
+
+Answers:
+
+1: db.films.find({"name":"Krish"},{"media":1}).pretty();
+2: db.films.find({"name":"Krish"},{"media":1,"review":1}).pretty();
+3: db.films.find({"name":"Krish"},{"cast.actor":1,"cast.role":1,"cast.name_in_movie":1}).pretty();
+4: db.films.find({"review.username":"user5"},{"review.username.$":1},{"review.review_given.$":1}).pretty();
+5: db.films.find({"cast.actor":"Kajol"},{"cast.skill.$":1}).pretty();
+6: db.films.find({"cast.actor":"Nasir Uddin Shah"},{"cast.role.$":1}).pretty();
